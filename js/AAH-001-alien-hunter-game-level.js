@@ -109,41 +109,48 @@ function Level(ID,Name,Description,PlayArea,BGColour,BGImage,MusicList,ScoreModi
 	this.timelimit=TimeLimit;
 	this.timeellipsed=0;	
 
-	this.Update=Update;
-	this.Draw=Draw;
-	this.CountUp=CountUp;
-	this.GetTimeLeft=GetTimeLeft;
-	this.OnClick=OnClick;
-	this.CheckField=CheckField;
-	this.SetNewMole=SetNewMole;
+	this.update=update;
+	this.draw=draw;
+	this.countUp=countUp;
+	this.getTimeLeft=getTimeLeft;
+	this.onClick=onClick;
+	this.checkField=checkField;
+	this.setNewMole=setNewMole;
 
 	
-	function Update(){
+	function update(){
 		
 	}
 
-	function Draw(selection,Domlist,ctx){
+	function draw(selection,Domlist,ctx){
 		
 	}
 
-	function CountUp(interval){
+	function countUp(interval){
 		
 	}
 
-	function GetTimeLeft(oti){
+	function getTimeLeft(oti){
 		
 	}
 
-	function OnClick(e){
+	function onClick(e){
 		
 	}
 
-	function CheckField(crect){
+	function checkField(crect){
 		
 	}
 
-	function SetNewMole(rate){
-		
+	function setNewMole(rate){
+		//checks if you have reached the "mole" limit
+		if(this.molecount<this.molelimit){
+			//compares the rate and determines if a new mole should randomly pop up a higher rate should be set for lower amounts of moles in list
+			if(Math.floor(Math.random()*100)<=rate){
+				//calls a method in the "hole" object which checks if a "mole" is currently in the "hole" or not and places or not places a "mole" accordingly
+				this.holelist[Math.floor(Math.random()*(this.holelist.length-1))].SetMole();
+			}
+		}
 	}
 
 }
